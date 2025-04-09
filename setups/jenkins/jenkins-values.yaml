@@ -416,7 +416,13 @@ controller:
   installLatestSpecifiedPlugins: false
 
   # -- List of plugins to install in addition to those listed in controller.installPlugins
-  additionalPlugins: []
+  additionalPlugins:
+    - blueocean:1.27.17
+    - docker:1274.vc0203fdf2e74
+    - cucumber-testresult-plugin:0.10.1
+    - matrix-project:847.v88a_f90ff9f20
+    - junit:1321.v399b_3e395b_5a_
+
 
   # Without this; whenever the controller gets restarted (Evicted, etc.) it will fetch plugin updates that have the potential to cause breakage.
   # Note that for this to work, `persistence.enabled` needs to be set to `true`
