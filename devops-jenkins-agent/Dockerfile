@@ -1,4 +1,4 @@
-FROM docker:28
+FROM docker:latest
 
 LABEL maintainer="Diego Grassato <diego.grassato@gmail.com>"
 
