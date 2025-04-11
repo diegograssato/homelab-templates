@@ -18,10 +18,12 @@ RUN apk add --update ca-certificates \
     && apk add -t deps \
     && apk add --update curl \
     && export ARCH="$(apk --print-arch)" && if [[ ${ARCH} == "x86_64" ]]; then export ARCH="amd64"; elif [[ ${ARCH} == "aarch64" ]]; then export ARCH="arm64"; fi && curl -L https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/${ARCH}/kubectl -o kubectl \
+    && curl -L https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-${ARCH} -o argocd \
+    && install -o root -g root -m 0755 argocd /usr/local/bin/argocd \
     && install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl \
     && curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sh \
     && apk del --purge deps \
     && rm /var/cache/apk/*
 
-ENTRYPOINT ["kubectl"]
+ENTRYPOINT ["argocd"]
 CMD ["help"]
