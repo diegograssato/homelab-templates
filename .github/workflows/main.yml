@@ -1,4 +1,4 @@
-name: Build and Publish kubectl container
+name: Build and Publish DevOps Tools
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build and test kubectl container
+    - name: Build and test DevOps container
       run: |
         cd devops-jenkins-agent
         GIT_BRANCH=${GITHUB_REF#refs/heads/} make build
@@ -52,8 +52,7 @@ jobs:
         tags: |
           ${{ github.ref != 'refs/heads/main' && steps.docker_meta.outputs.tags || '' }}
           ${{ github.ref == 'refs/heads/main' && 'diegograssato/devops-tools:latest' || '' }}
-        labels: ${{ steps.docker_meta.outputs.labels }}
-        dockerfile: ./devops-jenkins-agent/Dockerfile
+        labels: ${{ steps.docker_meta.outputs.labels }} 
     - name: Sign image only on version branches
       if: ${{ startsWith(github.ref, 'refs/heads/v') }}
       run: cosign sign --oidc-issuer https://token.actions.githubusercontent.com ${TAGS}
