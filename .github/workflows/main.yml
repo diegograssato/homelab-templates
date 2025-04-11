@@ -24,8 +24,6 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: diegograssato/devops-tools
-        tag-semver: |
-          {{raw}}
     - name: Set up QEMU
       if: ${{ startsWith(github.ref, 'refs/heads/m') || startsWith(github.ref, 'refs/heads/v') }}
       uses: docker/setup-qemu-action@v3
