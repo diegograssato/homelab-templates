@@ -6,7 +6,6 @@ ARG VCS_REF
 ARG BUILD_DATE
 
 # Metadata
-# Metadata
 LABEL org.opencontainers.image.title="https://github.com/diegograssato/devOpstools" \
       org.opencontainers.image.url="https://helm.sh/docs/"
 LABEL org.label-schema.vcs-ref=$VCS_REF \
