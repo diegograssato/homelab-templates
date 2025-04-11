@@ -25,5 +25,5 @@ RUN apk add --update ca-certificates \
     && apk del --purge deps \
     && rm /var/cache/apk/*
 
-ENTRYPOINT ["kubectl"]
+ENTRYPOINT ["argocd"]
 CMD ["help"]
