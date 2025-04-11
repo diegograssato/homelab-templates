@@ -52,6 +52,7 @@ jobs:
           ${{ github.ref != 'refs/heads/main' && steps.docker_meta.outputs.tags || '' }}
           ${{ github.ref == 'refs/heads/main' && 'diegograssato/devops-tools:latest' || '' }}
         labels: ${{ steps.docker_meta.outputs.labels }}
+        dockerfile: ./devops-jenkins-agent/Dockerfile
     - name: Sign image only on version branches
       if: ${{ startsWith(github.ref, 'refs/heads/v') }}
       run: cosign sign --oidc-issuer https://token.actions.githubusercontent.com ${TAGS}
