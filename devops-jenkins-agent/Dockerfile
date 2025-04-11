@@ -8,7 +8,7 @@ ARG BUILD_DATE
 # Metadata
 LABEL org.opencontainers.image.title="https://github.com/diegograssato/devOpstools" \
       org.opencontainers.image.url="https://helm.sh/docs/" \
-      org.opencontainers.image.description="DevOps tool for jenkins agent, docker, kubectl, helm and argocd cli"
+      org.opencontainers.image.description="DevOps tools for jenkins agent, docker, kubectl, helm and argocd cli"
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/diegograssato/devOpstools" \
       org.label-schema.build-date=$BUILD_DATE \
