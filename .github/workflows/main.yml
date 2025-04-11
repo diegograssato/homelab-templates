@@ -47,6 +47,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         platforms: linux/amd64,linux/s390x,linux/arm64,linux/ppc64le
+        context: ./devops-jenkins-agent
         push: true
         tags: |
           ${{ github.ref != 'refs/heads/main' && steps.docker_meta.outputs.tags || '' }}
