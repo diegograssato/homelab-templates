@@ -3,7 +3,6 @@ name: Build and Publish DevOps Tools
 on:
   push:
 
-
 jobs:
   build-image:
     runs-on: self-hosted
