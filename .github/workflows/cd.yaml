@@ -1,0 +1,14 @@
+ 
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ["Build and Publish DevOps Tools"]
+    types:
+      - completed
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
