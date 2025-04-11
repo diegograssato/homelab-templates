@@ -21,7 +21,7 @@ jobs:
     - name: Docker meta
       if: ${{ startsWith(github.ref, 'refs/heads/m') || startsWith(github.ref, 'refs/heads/v') }}
       id: docker_meta
-      uses: crazy-max/ghaction-docker-meta@v1
+      uses: docker/metadata-action@v5
       with:
         images: diegograssato/devops-tools
         tag-semver: |
