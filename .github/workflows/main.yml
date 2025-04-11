@@ -20,7 +20,7 @@ jobs:
       - name: Attest
         uses: actions/attest-build-provenance@v2
         with:
-          subject-path: '${{ github.workspace }}/homelab-templates/devops-jenkins-agent'
+          subject-path: '${{ github.workspace }}/devops-jenkins-agent'
 
       - name: Install Cosign
         uses: sigstore/cosign-installer@v3.8.1
