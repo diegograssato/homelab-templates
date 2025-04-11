@@ -14,10 +14,12 @@ else
 endif
 
 build:
-	@docker build \
-	  --build-arg VCS_REF=`git rev-parse --short HEAD` \
-	  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-	  -t $(DOCKER_IMAGE):latest .
+	@docker buildx build --platform linux/amd64,linux/arm64 -t $(DOCKER_IMAGE):latest . .
+
+	# @docker build \
+	#   --build-arg VCS_REF=`git rev-parse --short HEAD` \
+	#   --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+	#   -t $(DOCKER_IMAGE):latest .
 	  
 push: build
 	# Push to DockerHub
